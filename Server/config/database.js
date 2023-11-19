@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
 
-const connectDB = () => {
+const connectDatabase = () => {
   mongoose
-    .connect(process.env.MONGODB_URI || "", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
+    .connect(
+      process.env.MONGODB_URI ||
+        "mongodb+srv://sahilabcd60:sahilmn@sahilmn.6nkidrb.mongodb.net/jobboard",
+      {}
+    )
     .then(() => {
       console.log(`MongoDB connected successfully`);
     })
@@ -14,4 +15,4 @@ const connectDB = () => {
     });
 };
 
-module.exports = connectDB;
+module.exports = connectDatabase;
