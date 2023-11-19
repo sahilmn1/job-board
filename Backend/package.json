@@ -14,6 +14,7 @@
     "passport-local-mongoose": "^8.0.0"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "build" : "npm run build"
   }
 }
