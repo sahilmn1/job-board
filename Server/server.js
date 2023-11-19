@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const User = require("./models/model");
 const db = require("./config/database");
-const bcrypt = require('bcryptjs');
+const bcryptjs = require("bcryptjs");
 const cors = require("cors");
 const Job = require("./models/jobModel");
 const mongoose = require("mongoose");
@@ -53,7 +53,7 @@ app.post("/api/login", async (req, res) => {
     }
 
     // Check the password
-    const passwordMatch = await bcrypt.compare(password, user.password);
+    const passwordMatch = await bcryptjs.compare(password, user.password);
     if (!passwordMatch) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
