@@ -2,7 +2,11 @@ const mongoose = require("mongoose");
 
 const connectDatabase = () => {
   mongoose
-    .connect(process.env.MONGODB_URI || "mongodb+srv://sahilabcd60:sahilmn@sahilmn.6nkidrb.mongodb.net/jobboard", {})
+    .connect(
+      process.env.MONGODB_URI ||
+        "mongodb+srv://sahilabcd60:sahilmn@sahilmn.6nkidrb.mongodb.net/jobboard",
+      {}
+    )
     .then(() => {
       console.log(`MongoDB connected successfully`);
     })
