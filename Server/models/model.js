@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const bcryptjs = require("bycryptjs");
+const bcrypt = require("bcrypt");
 
 // Define User schema
 const userSchema = new mongoose.Schema({
@@ -13,12 +13,11 @@ userSchema.pre("save", async function (next) {
   const user = this;
   if (!user.isModified("password")) return next();
 
-  const salt = await bcryptjs.genSalt(10);
-  const hash = await bcryptjs.hash(user.password, salt);
+  const salt = await bcrypt.genSalt(10);
+  const hash = await bcrypt.hash(user.password, salt);
   user.password = hash;
   next();
 });
-
 // Create User model
 const User = mongoose.model("User", userSchema, "signup");
 
